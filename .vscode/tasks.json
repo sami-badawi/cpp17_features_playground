@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "build",
+			"command": "/usr/bin/g++",
+			"args": [
+				"-std=c++17",
+				"*.cpp",
+				"-o",
+				"${workspaceFolderBasename}.exe"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "shell",
+			"label": "run",
+			"command": "./${workspaceFolderBasename}.exe",
+			"dependsOn" : ["build"]
+		}
+	]
+}
